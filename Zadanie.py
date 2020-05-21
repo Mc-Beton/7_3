@@ -39,18 +39,18 @@ def create_contacts(typ, amount):
         j = fake.safe_email()
         k = i.split()
         m = fake.phone_number()
-        if typ == "Base Contact":
+        if typ == BaseContact:
             base_cards.append(BaseContact(name = k[0], last_name=k[1], number = m, e_mail = j))
-        elif typ == "Business Contact":
+        elif typ == BusinessContact:
             n = fake.job()
             p = fake.company()
             r = fake.phone_number()
             business_cards.append(BusinessContact(name = k[0], last_name=k[1], number = m, e_mail = j, job = n, company = p, business_phone = r))
               
 
-"""
-create_contacts("Base Contact", 3)
-create_contacts("Business Contact", 3)
+
+create_contacts(BaseContact, 3)
+create_contacts(BusinessContact, 3)
 
 for i in base_cards:
     print(i)
@@ -63,4 +63,3 @@ print(base_cards[1].label_length)
 
 print(business_cards[1].contact())
 print(business_cards[1].label_length)
-"""
