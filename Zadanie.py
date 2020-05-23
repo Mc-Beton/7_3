@@ -64,7 +64,12 @@ def create_contacts(typ, amount):
     
 # Function to print out possible commands
 def print_help():
-    print("info in progress")
+    print("Here we have a list of available commands")
+    print("make base cards - generate random cards with personal data")
+    print("make business cards - generate random business cards")
+    print("show - print out generated base or business cards")
+    print("call - from a list of base or business cards call a person by his/her name")
+    print("exit - terminate program")
 
 def show(a):
     if a == "base cards":
@@ -101,7 +106,7 @@ def call():
 
 # Available commands
 def task():
-    task1 = input("Hello! I am a simple program to do some stuff. Wanna check me out? Type in help_me for commands ;)")
+    task1 = input("What would you like to do? ")
     if task1 == "help_me":
         print_help()
         task()
@@ -125,6 +130,7 @@ def task():
         
 # Call out the program
 if __name__ == "__main__":
+    print("Hello! I am a simple program to do some stuff. Wanna check me out? Type in help_me for commands ;)")
     task()
 
 #print(base_cards[1].contact())
