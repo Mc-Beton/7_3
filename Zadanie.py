@@ -46,7 +46,7 @@ def how_long(func):
     return wrap
 
 # Function to generate random personal data
-#@how_long
+@how_long
 def create_contacts(typ, amount):
     
     for m in range(amount):
@@ -98,6 +98,20 @@ def call():
         for i in business_cards:
             if b == str(i.name):
                 print(i.contact())
+
+def length():
+    a = input("From which list of contacts would you like to check the length of names? \n base cards \n business cards \n")
+    show(a)
+    b = input("Type in the persons first name you would like to check ")
+    if a == "base cards":
+        for i in base_cards:
+            if b == str(i.name):
+                print(i.label_length)
+        
+    elif a == "business cards":
+        for i in business_cards:
+            if b == str(i.name):
+                print(i.label_length)
     
 
 
@@ -106,35 +120,37 @@ def call():
 
 # Available commands
 def task():
-    task1 = input("What would you like to do? ")
-    if task1 == "help_me":
-        print_help()
-        task()
-    elif task1 == "make base cards":
-        a = int(input("How many random base cards would you like to create? "))
-        create_contacts(BaseContact, a)
-        task()
-    elif task1 == "make business cards":
-        a = int(input("How many random business cards would you like to create? "))
-        create_contacts(BusinessContact, a)
-        task()
-    elif task1 == "show":
-        a = input("Which cards would you like to see? \n base cards \n business cards \n")
-        show(a)
-        task()
-    elif task1 == "call":
-        call()
-        task()
-    elif task1 == "exit":
-        print("bye")
+    while True:
+        task1 = input("What would you like to do? ")
+        if task1 == "help_me":
+            print_help()
+        
+        elif task1 == "make base cards":
+            a = int(input("How many random base cards would you like to create? "))
+            create_contacts(BaseContact, a)
+        
+        elif task1 == "make business cards":
+            a = int(input("How many random business cards would you like to create? "))
+            create_contacts(BusinessContact, a)
+        
+        elif task1 == "show":
+            a = input("Which cards would you like to see? \n base cards \n business cards \n")
+            show(a)
+        
+        elif task1 == "call":
+            call()
+        
+        elif task1 == "length":
+            length()
+        
+        elif task1 == "exit":
+            print("bye")
+            break
+        else:
+            print("there is no such command, type help_me for list of available commands")
         
 # Call out the program
 if __name__ == "__main__":
     print("Hello! I am a simple program to do some stuff. Wanna check me out? Type in help_me for commands ;)")
     task()
 
-#print(base_cards[1].contact())
-#print(base_cards[1].label_length)
-
-#print(business_cards[1].contact())
-#print(business_cards[1].label_length)
