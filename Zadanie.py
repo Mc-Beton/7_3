@@ -15,7 +15,7 @@ class BaseContact:
 
 
     def contact(self):
-        return f"Wybieram numer +48 {self.number} i dzwonię do {self.name} {self.last_name}"
+        return f"Dailing +48 {self.number} and calling to {self.name} {self.last_name}"
  
     @property
     def label_length(self):
@@ -71,6 +71,7 @@ def print_help():
     print("call - from a list of base or business cards call a person by his/her name")
     print("exit - terminate program")
 
+# Function 
 def show(a):
     if a == "base cards":
         for i in base_cards:
@@ -80,11 +81,6 @@ def show(a):
         for i in business_cards:
             print(i)
         
-
-
-    
-
-
 def call():
     a = input("From which list of contacts would you like to call? \n base cards \n business cards \n")
     show(a)
@@ -112,11 +108,6 @@ def length():
         for i in business_cards:
             if b == str(i.name):
                 print(i.label_length)
-    
-
-
-
-
 
 # Available commands
 def task():
