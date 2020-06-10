@@ -1,36 +1,9 @@
 from faker import Faker
 fake = Faker()
 import time
+from businesscontact import BusinessContact
+from basecontact import BaseContact
 
-# Define main class
-class BaseContact:
-    def __init__(self, name, last_name, number, e_mail):
-        self.name = name
-        self.last_name = last_name
-        self.number = number
-        self.e_mail = e_mail
-
-    def __str__(self):
-        return f"{self.name} {self.last_name} {self.e_mail}"
-
-
-    def contact(self):
-        return f"Dailing +48 {self.number} and calling to {self.name} {self.last_name}"
- 
-    @property
-    def label_length(self):
-        imie = len(self.name)
-        nazwisko = len(self.last_name)
-        return f"{imie} {nazwisko}"
-
-# Define new sub-class
-class BusinessContact(BaseContact):
-    def __init__(self, job, company, business_phone, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.job = job
-        self.company = company
-        self.business_phone = business_phone
-    
 # Define lists of cards
 base_cards = []
 business_cards = []
@@ -81,10 +54,7 @@ def show(a):
         for i in business_cards:
             print(i)
         
-def call():
-    a = input("From which list of contacts would you like to call? \n base cards \n business cards \n")
-    show(a)
-    b = input("Type in the persons first name you would like to contact ")
+def call(a, b): 
     if a == "base cards":
         for i in base_cards:
             if b == str(i.name):
@@ -95,10 +65,7 @@ def call():
             if b == str(i.name):
                 print(i.contact())
 
-def length():
-    a = input("From which list of contacts would you like to check the length of names? \n base cards \n business cards \n")
-    show(a)
-    b = input("Type in the persons first name you would like to check ")
+def length(a, b):
     if a == "base cards":
         for i in base_cards:
             if b == str(i.name):
@@ -129,10 +96,16 @@ def task():
             show(a)
         
         elif task1 == "call":
-            call()
+            a = input("From which list of contacts would you like to call? \n base cards \n business cards \n")
+            show(a)
+            b = input("Type in the persons first name you would like to contact ")
+            call(a, b)
         
         elif task1 == "length":
-            length()
+            a = input("From which list of contacts would you like to check the length of names? \n base cards \n business cards \n")
+            show(a)
+            b = input("Type in the persons first name you would like to check ")
+            length(a,b)
         
         elif task1 == "exit":
             print("bye")
