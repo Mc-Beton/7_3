@@ -6,3 +6,6 @@ class BusinessContact(BaseContact):
         self.job = job
         self.company = company
         self.business_phone = business_phone
+
+    def contact(self):
+        return f"Dailing +48 {self.business_phone} and calling to {self.name} {self.last_name}"
